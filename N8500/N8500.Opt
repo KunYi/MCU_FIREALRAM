@@ -1,0 +1,60 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.s*; *.src; *.a*)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt; *.h; *.inc)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (Target 1), 0x0000 // Tools: 'MCS-51'
+GRPOPT 1,(Source Group 1),1,0,0
+
+OPTFFF 1,1,1,0,0,0,0,0,<.\src\eeprom.c><eeprom.c> 
+OPTFFF 1,2,1,0,0,0,0,0,<.\src\key.c><key.c> 
+OPTFFF 1,3,1,184549376,0,0,0,0,<.\src\lcd.c><lcd.c> 
+OPTFFF 1,4,1,0,0,0,0,0,<.\src\PTimer.c><PTimer.c> 
+OPTFFF 1,5,1,0,0,0,0,0,<.\src\relay.c><relay.c> 
+OPTFFF 1,6,1,0,0,0,0,0,<.\src\sensor.c><sensor.c> 
+OPTFFF 1,7,1,0,0,0,0,0,<.\src\sm10.c><sm10.c> 
+OPTFFF 1,8,1,436207616,0,0,0,0,<.\src\Speech.c><Speech.c> 
+OPTFFF 1,9,1,0,0,0,0,0,<.\src\uart_v101.c><uart_v101.c> 
+OPTFFF 1,10,1,1040187392,0,0,0,0,<.\src\communication.c><communication.c> 
+OPTFFF 1,11,1,0,0,0,0,0,<.\src\display.c><display.c> 
+OPTFFF 1,12,1,738197504,0,0,0,0,<.\src\CB\CallSoftTimer.c><CallSoftTimer.c> 
+
+
+TARGOPT 1, (Target 1)
+ CLK51=22118400
+  OPTTT 1,1,1,0
+  OPTHX 0,65535,0,0,0
+  OPTLX 120,65,8,<.\list\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTAX 0
+  OPTBL 0,(Data Sheet)<DATASHTS\WINBOND\W77E58.PDF>
+  OPTBL 1,(Add on databooks)<DATASHTS\ADDBOOKS.PDF>
+  OPTBL 2,(Instruction Set Manual)<DATASHTS\INFINEON\M500.PDF>
+  OPTDL (S8051.DLL)()(DP51.DLL)(-p58)(S8051.DLL)()(TP51.DLL)(-p58)
+  OPTDBG 44029,0,()()()()()()()()()() (BIN\MON51.DLL)()()()
+  OPTKEY 0,(DLGDP51)((98=-1,-1,-1,-1,0)(82=-1,-1,-1,-1,0)(83=-1,-1,-1,-1,0)(84=-1,-1,-1,-1,0)(85=-1,-1,-1,-1,0)(5011=-1,-1,-1,-1,0)(99=97,329,300,594,0)(101=95,100,296,310,0)(91=-1,-1,-1,-1,0)(92=-1,-1,-1,-1,0)(94=-1,-1,-1,-1,0)(104=-1,-1,-1,-1,0)(5067=-1,-1,-1,-1,0))
+  OPTBB 0,0,3277,1,-16763161,0,0,0,0,1,<SM10.C>()()
+  OPTWA 0,1,(FireZoneBuffer[0])
+  OPTWA 1,1,(FireZoneBuffer[1])
+  OPTWA 2,1,(PreFireStatus[0])
+  OPTWA 3,1,(PreFireStatus[1])
+  OPTWA 4,1,(ProcState,0x0A)
+  OPTWA 5,1,(FireSensor[0])
+  OPTMM 1,0,(X:0x50c0)
+  OPTMM 2,0,(D:0x4F)
+  OPTMM 3,0,(x:0x0140)
+  OPTDF 0x82
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

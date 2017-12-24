@@ -1,0 +1,16 @@
+must implement for extend unit
+
+
+// extend
+receive 'S', 'S', 0x40, 0x01, 0xXX, Key         -- Key code
+receive 'S', 'S', 0x40, 0x02, 0xXX, MicPhone    -- 0x00 = release, 0xFF = push
+receive 'S', 'S', 0x40, 0x03, Val1, Val2        -- extend ExtendGroup
+receive 'S', 'S', 0x40, 0x04, 0xXX, 0xXX        -- exit extend ExtendGroup
+
+respone 'S', 'R', 0x40, 0x02, 0x00, 0xFF        -- entry remote extend group
+respone 'S', 'R', 0x40, 0x02, 0x00, 0x00        -- not entry remote extend group
+respone 'S', 'R', 0x40  0x03, 0x00, 0x00        -- exit remote extend group
+
+BOOLEAN ExtendUnit_Transmit(const BYTE Number,
+                            const BYTE parameter1, const BYTE parameter2, 
+                            const BYTE parameter3, const BYTE parameter4, const BYTE ID)

@@ -1,0 +1,62 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.s*; *.src; *.a*)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt; *.h; *.inc)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (Target 1), 0x0000 // Tools: 'MCS-51'
+GRPOPT 1,(Source Group 1),1,0,0
+
+OPTFFF 1,1,1,402653184,0,0,0,0,<.\src\display.c><display.c> 
+OPTFFF 1,2,1,503316480,0,0,0,0,<.\src\key.c><key.c> 
+OPTFFF 1,3,1,0,0,0,0,0,<.\src\PTimer.c><PTimer.c> 
+OPTFFF 1,4,1,0,0,0,0,0,<.\src\sensor.c><sensor.c> 
+OPTFFF 1,5,1,704643072,0,0,0,0,<.\src\sm10.c><sm10.c> 
+OPTFFF 1,6,1,402653184,0,0,0,0,<.\src\lcd.c><lcd.c> 
+OPTFFF 1,7,1,0,0,0,0,0,<.\src\P1Layer2.c><P1Layer2.c> 
+OPTFFF 1,8,1,251658240,0,0,0,0,<.\src\P1Layer3.c><P1Layer3.c> 
+OPTFFF 1,9,1,184549376,0,0,0,0,<.\src\P2Layer2.c><P2Layer2.c> 
+OPTFFF 1,10,1,16777216,0,0,0,0,<.\src\P2Layer3V101.c><P2Layer3V101.c> 
+OPTFFF 1,11,1,0,0,0,0,0,<.\src\eeprom.c><eeprom.c> 
+OPTFFF 1,12,1,352321536,0,0,0,0,<.\src\misc.c><misc.c> 
+OPTFFF 1,13,1,16777216,0,0,0,0,<.\src\uart_v102.c><uart_v102.c> 
+OPTFFF 1,14,1,0,0,0,0,0,<.\src\CallSoftTimer.C><CallSoftTimer.C> 
+
+
+TARGOPT 1, (Target 1)
+ CLK51=22118400
+  OPTTT 1,1,1,0
+  OPTHX 0,65535,0,0,0
+  OPTLX 120,65,8,<.\list\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTAX 0
+  OPTBL 0,(Add on databooks)<DATASHTS\ADDBOOKS.PDF>
+  OPTBL 1,(Instruction Set Manual)<DATASHTS\INFINEON\M500.PDF>
+  OPTBL 2,(Data Sheet)<DATASHTS\WINBOND\W77C58.PDF>
+  OPTDL (S8051.DLL)()(DP51.DLL)(-p58)(S8051.DLL)()(TP51.DLL)(-p58)
+  OPTDBG 44029,0,()()()()()()()()()() (BIN\MON51.DLL)()()()
+  OPTKEY 0,(DLGDP51)((98=-1,-1,-1,-1,0)(82=-1,-1,-1,-1,0)(83=-1,-1,-1,-1,0)(84=-1,-1,-1,-1,0)(85=-1,-1,-1,-1,0)(5011=-1,-1,-1,-1,0)(99=573,143,776,408,0)(101=691,268,892,478,0)(91=-1,-1,-1,-1,0)(92=653,360,853,603,0)(94=556,221,781,446,0)(104=-1,-1,-1,-1,0)(5067=-1,-1,-1,-1,0))
+  OPTWA 0,1,(P_CallBack)
+  OPTWA 1,1,(P1RxBuff)
+  OPTWA 2,1,(LEDTable)
+  OPTWA 3,1,(TelSensor)
+  OPTWA 4,1,(TelStatus)
+  OPTWA 5,1,(VRAM)
+  OPTWA 0,2,(RLength0)
+  OPTWA 1,2,(KeyFIFO)
+  OPTMM 1,0,(X:0x5040)
+  OPTMM 2,0,(x:0x50c0)
+  OPTDF 0x30082
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

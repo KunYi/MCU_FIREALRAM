@@ -1,0 +1,52 @@
+
+protocol defined following 
+
+packet   ADDRESS  content
+  no.
+
+           40H    0x90, 0x00H, xxH, RED, GREEN  
+           40H    0x90, 0x01H, xxH, RED, GREEN FLASH LED STATUS
+           40H    0x90, 0x02H, Status  狀態
+
+           xxH    0x95, xxH,  00, 00, 00, NN Key
+           40H    0x92, 
+                 
+  // hold out  
+  78       20H    0x80, 'E', 'X', 'I', 'S', 'T'                          遠端控制器宣告存在由主機回應,系統匯流排IDLE時,每5分鐘應該發出一次
+  79       20H    0x80, 'A', 'K'                                         遠端控制器回應 ACK
+  80       4FH    0x80, 'A', 'K'                                         主機回應 ACK
+  81       4FH    0x81,  ID, 10 BITS BUTTON                              主機對遠端發出自己的按鍵狀態
+  82       2xH    0x81,  10 BITS BUTTON                                  主機對延伸副機發出按鍵命令
+  83       4FH    0x82,  ID, SubID, 10 BITS BUTTON                       主機對遠端控制器發出其延伸副機按鍵狀態
+  84       20H    0x83,  SubID, 10 BITS BUTTON,                          延伸副機發出按鍵 狀態
+  85       20H    0x84,  SubID, 10 BITS RED LED ON/OFF, 10 BITS Flash    延伸副機發出 RED LED 狀態
+  86       20H    0x85,  SubID, 10 BITS GREEN LED ON/OFF, 10 BITS Flash  延伸副機發出 GREEN LED 狀態
+  87       20H    0x86,  SubID, 10 BITS RELAY                            延伸副機發出 RELAY 狀態
+  88       xxH    0x83,  10 BITS BUTTON                                  主機設定副機按鍵
+  89       xxH    0x84,  10 BITS RED LED ON/OFF, 10 BITS FLASH
+  90       xxH    0x85,  10 BITS GREEN LED ON/OFF, 10 BITS FLASH
+  91       xxH    0x86,  10 BITS RELAY 
+  92       xxH    0x87,  STATUS                                          主機查詢 STATUS : 0 BUTTON, 1 - RED LED, 2 - GREEN LED, 3 - RELAY
+  93       
+
+
+  必須實作 且已經實作
+  P2 term
+  延伸副機傳到系統端
+  No.   Address   content
+   1       0x80   0x01, SubID, nn Key                        延伸副機發出
+   2       0x80   0x02, SubID, ExtendID, nn Key              延伸副機發出
+   3       SubID  0xF0                                       回應 ACK 給 延伸副機
+  系統端傳送到延伸副機
+   4       SubID  0xF1                                       測試是否有這個 ID
+   5       SubID  0x01, ID, RED LED         ( 2 BYTE)
+   6       SubID  0x02, ID, Green LED       ( 2 BYTE)
+   7       SubID  0x03, ID, Flash RED LED   ( 2 BYTE)
+   8       SubID  0x04, ID, Flash GREEN LED ( 2 BYTE)
+   9       SubID  0x05, ID, Other LED       ( 2 BYTE)
+   10      0xFF   0x05, StatusScreen        ( 2 BYTE) 
+   11      0x80   0xF0, SubID                                延伸副機回應 ACK
+   12      0xFF   0x01, ID, RED LED, ACKID         ( 2 BYTE)
+   13      0xFF   0x02, ID, Green LED, ACKID       ( 2 BYTE)
+   14      0xFF   0x03, ID, Flash RED LED, ACKID   ( 2 BYTE)
+   15      0xFF   0x04, ID, Flash GREEN LED, ACKID ( 2 BYTE)

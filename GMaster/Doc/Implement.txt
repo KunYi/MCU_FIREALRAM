@@ -1,0 +1,59 @@
+Implement function
+
+P1 port term.
+Package N0
+
+
+// Background Mode
+62.
+63.
+64.
+65.
+// Cancel Alarm Mode
+66.
+67.
+
+// Active Mode
+74. <-- 不需要實作
+75.
+
+// emergency
+21.
+22.
+23.
+24.
+
+// Fire Alarm
+31.
+32.
+33.
+34,
+
+// Group
+13.
+14.
+15.
+16.
+17.
+18.
+19.
+20.
+// Man handle
+68.
+69.
+70.
+71.
+// Key
+5.
+6.
+7.
+8.
+9.
+10.
+11.
+12.
+
+//
+72.
+73.
+
